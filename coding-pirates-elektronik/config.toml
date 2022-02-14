@@ -22,5 +22,10 @@ theme= 'digitalgarden'
 
 [[menu.main]]
   name = 'Uge 1'
-  url = '/uge'
+  url = '/uge1'
+  weight = 2
+
+[[menu.main]]
+  name = 'Uge 2'
+  url = '/uge2'
   weight = 2
