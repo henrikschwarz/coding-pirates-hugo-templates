@@ -1,0 +1,26 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Coding pirates Odense - Elektronik'
+theme= 'digitalgarden'
+
+[Params]
+  description = "My Digital Garden on the Internet"
+  images = ['/digital-garden-logo.png']
+
+[Params.newsletter]
+  title = ""
+  description = "A curated weekly digest once a week to your mailbox"
+  path = "https://www.getrevue.co/profile/username/add_subscriber"
+
+
+
+ [menu]
+ [[menu.main]]
+  name = 'Hjem'
+  url = '/'
+  weight = 1
+
+[[menu.main]]
+  name = 'Uge 1'
+  url = '/uge'
+  weight = 2
