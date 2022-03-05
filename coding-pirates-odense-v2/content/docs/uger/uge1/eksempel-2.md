@@ -10,6 +10,9 @@ Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
 ![El-diagram for eksempel 2](/static/example2.png)
 
 # Kodeeksempel 1 - Få en LED til at lyse, når der trykkes på en knap
+![Kodeeksempel 1](/static/e2c1.png)
+
+<!--
 ```cpp
 const int ledPin = 8;
 const int inputPin = 7;
@@ -37,8 +40,12 @@ void loop() {
     delay(100); 
 }
 ```
+-->
 
 # Kodeeksempel 2 - Få LED til at lyse og sende tekst til PC ved ændring i input state
+![Kodeeksempel 2](/static/e2c2.png)
+
+<!--
 ```cpp
 const int ledPin = 8;
 const int inputPin = 7;
@@ -80,3 +87,4 @@ void loop() {
     delay(100); 
 }
 ```
+-->

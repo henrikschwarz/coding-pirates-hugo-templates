@@ -12,7 +12,7 @@ Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
 De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
 
 ## Kodeeksempel 1 - Få en LED til at blinke
-![Kodeeksempel 4](/static/e1c1.png)
+![Kodeeksempel 1](/static/e1c1.png)
 
 <!--
 ```cpp
@@ -49,7 +49,7 @@ void loop() {
 -->
 
 ## Kodeeksempel 2 - Få LED til at blinke vha. variabel
-![Kodeeksempel 4](/static/e1c2.png)
+![Kodeeksempel 2](/static/e1c2.png)
 
 <!--
 ```cpp
@@ -85,7 +85,7 @@ void loop() {
 -->
 
 ## Kodeeksempel 3 - Få LED til at blinke ved at læse pinværdi, og gemme i variabel
-![Kodeeksempel 4](/static/e1c3.png)
+![Kodeeksempel 3](/static/e1c3.png)
 
 <!--
 ```cpp
