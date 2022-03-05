@@ -14,24 +14,29 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.92.2'
+
       - name: Build Hugo
         working-directory: ./cp-hugo-pages
         run: |
           hugo --minify
+
       - uses: actions/upload-artifact@v2
         with:
           name: files
           path: ./cp-hugo-pages/public
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     name: Deploying to Github Pages
     steps:
       - uses: actions/download-artifact@v2
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
