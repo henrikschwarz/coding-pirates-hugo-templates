@@ -9,8 +9,12 @@ Første Eksempel er for at få en led til at blinke. Det er en af de mest klassi
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
 ![El-diagram for eksempel 1](/static/example1.png)
 
+De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
 
 ## Kodeeksempel 1 - Få en LED til at blinke
+![Kodeeksempel 4](/static/e1c1.png)
+
+<!--
 ```cpp
 const int ledPin = 13;
 
@@ -42,8 +46,12 @@ void loop() {
     delay(1000);
 }
 ```
+-->
 
 ## Kodeeksempel 2 - Få LED til at blinke vha. variabel
+![Kodeeksempel 4](/static/e1c2.png)
+
+<!--
 ```cpp
 const int ledPin = 7;
 bool ledState = false;
@@ -74,9 +82,12 @@ void loop() {
     delay(1000);
 }
 ```
+-->
 
-De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
 ## Kodeeksempel 3 - Få LED til at blinke ved at læse pinværdi, og gemme i variabel
+![Kodeeksempel 4](/static/e1c3.png)
+
+<!--
 ```cpp
 const int ledPin = 7;
 
@@ -106,8 +117,11 @@ void loop() {
     delay(1000);
 }
 ```
+-->
 
 ## Kodeeksempel 4 - Få LED til at blinke ved at læse pinværdi
+![Kodeeksempel 4](/static/e1c4.png)
+<!--
 ```cpp
 const int ledPin = 7;
 
@@ -134,7 +148,9 @@ void loop() {
     delay(1000);
 }
 ```
+-->
 
+<!--
 # Eksempel 2 - LED strip control (Avanceret)
 
 ```cpp
@@ -192,3 +208,4 @@ void loop() {
 	}
 }
 ```
+-->
