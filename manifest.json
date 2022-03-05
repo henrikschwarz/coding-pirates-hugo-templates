@@ -1,14 +1,14 @@
 {
   "name": "Coding pirates Odense Elektronik",
   "short_name": "Coding pirates Odense Elektronik",
-  "start_url": "/henrikschwarz/coding-pirates-hugo-templates/",
-  "scope": "/henrikschwarz/coding-pirates-hugo-templates/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/henrikschwarz/coding-pirates-hugo-templates/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]
