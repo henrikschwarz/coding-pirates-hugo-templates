@@ -1,46 +1,24 @@
 ---
 bookFlatSection: true
-title: "Eksempel 4 - LCD"
-weight: 2
+title: "Eksempel 4 - Buzzer"
+weight: 4
 ---
-# Eksempel 1 - Sæt LCD op diagram op
-Her skal der bruges 1 LCD I2C display og 4 han til hun ledninger. Så skal de forbindes som der vises nedenunder.
+# Eksempel 1 - Buzzer
+I det her eksempel skal vi sætte en buzzer op. For at gøre det skal vi bruge det her el-diagram:
 
-![El-Diagram for eksempel af LED](/static/eksempel-4.png)
+![buzzer](/static/buzzer_bb_cut.png)
 
-# Eksempel 1 - Hente biblotek til LCD
-For at kunne bruge vores LCD skal vi bruge et biblotek. Det biblotek kan findes igennem jeres Arduino program ved at gå op i `Sketch -> Include Library -> Manage Libraries`:
-
-![Sketch -> Include Library -> Manage Libraries](/static/manage-lib.png)
-
-Også skal søge på den her `LiquidCrystal`:
-
-![lcd lib](/static/lcd-lib.png)
-
-# Eksempel 1 - Kode til LCD
-
+# Eksempel 1 - Buzzer kode
+For at få buzzeren til at virke skal vi bruge `tone` og `noTone` som laver bølger med forskellige frekvenser og sender det til buzzeren.
 ```cpp
-#include <LiquidCrystal_I2C.h>
-#include <Wire.h>
+#define BUZZER_PIN 8 // Sæt buzzer pin
+int frekvens = 330;
 
-const int SCL_PIN = A5;
-const int SDA_PIN = A4;
-
-LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
-
-void setup()
-{
-  lcd.init(); // Initiere lcd display
-  lcd.backlight(); // Put backlight på displayet
+void setup() {
+  pinMode(8, OUTPUT);
 }
 
-
-void loop()
-{
-  lcd.setCursor(0,0); // Sæt cursor på første linje første tegn
-  lcd.print("Hello"); // Print besked på display
-  lcd.setCursor(0,1); // Sæte cursor på anden linje første tegn
-  lcd.print("Coding Pirates!!!");
-  delay(1000);
+void loop() {
+  tone(BUZZER_PIN, frekvens);
 }
 ```
