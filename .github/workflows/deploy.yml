@@ -2,7 +2,7 @@ name: Deploy Hugo Pages
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     name: Building Hugo Pages
