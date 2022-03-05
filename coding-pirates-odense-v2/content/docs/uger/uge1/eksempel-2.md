@@ -3,7 +3,7 @@ bookFlatSection: true
 title: "Eksempel 2 - LED & Tactile button"
 weight: 2
 ---
-# Eksempel 1 - LED control vha. input og knap
+# Eksempel 2 - LED control vha. input og knap
 I andet eksempel skal du arbejde med input pins på Arduinoen. I denne øvelse skal du få en knap til at lyse, når der trykkes på en knap.
 
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
