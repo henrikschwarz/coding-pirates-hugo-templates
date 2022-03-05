@@ -6,6 +6,8 @@ weight: 2
 # Eksempel 1 - LED control
 Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 
+![Schematic](/static/example1.png)
+
 ```cpp
 const int ledPin = 13;
 
