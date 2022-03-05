@@ -1,4 +1,3 @@
-baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Coding pirates Odense Elektronik'
 theme="plain-book"
