@@ -7,7 +7,7 @@ weight: 2
 Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
-![Schematic](/static/example1.png)
+![El-diagram for eksempel 1](/static/example1.png)
 
 
 ## Kodeeksempel 1 - Få en LED til at blinke
