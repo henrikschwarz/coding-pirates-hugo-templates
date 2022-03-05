@@ -1,3 +1,5 @@
+## Context variables : https://docs.github.com/en/actions/learn-github-actions/contexts
+
 name: Deploy Hugo Pages
 on:
   push:
@@ -25,7 +27,7 @@ jobs:
         working-directory: ./cp-hugo-pages
         run: |
           # hugo --minify --baseURL="${{ github.repository }}"
-          hugo --minify -- baseURL="henrikschwarz.github.io/coding-pirates-hugo-templates/"
+          hugo --minify -- baseURL="https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
 
       - uses: actions/upload-artifact@v2
         with:
