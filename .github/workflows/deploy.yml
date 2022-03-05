@@ -25,7 +25,7 @@ jobs:
         working-directory: ./cp-hugo-pages
         run: |
           # hugo --minify --baseURL="${{ github.repository }}"
-          hugo --minify
+          hugo --minify -- baseURL="henrikschwarz.github.io/coding-pirates-hugo-templates/"
 
       - uses: actions/upload-artifact@v2
         with:
