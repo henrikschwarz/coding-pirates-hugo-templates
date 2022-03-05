@@ -24,7 +24,8 @@ jobs:
       - name: Build Hugo
         working-directory: ./cp-hugo-pages
         run: |
-          hugo --minify --baseURL="${{ github.repository }}"
+          # hugo --minify --baseURL="${{ github.repository }}"
+          hugo --minify
 
       - uses: actions/upload-artifact@v2
         with:
