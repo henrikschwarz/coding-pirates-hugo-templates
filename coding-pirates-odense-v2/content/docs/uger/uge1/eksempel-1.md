@@ -6,8 +6,11 @@ weight: 2
 # Eksempel 1 - LED control
 Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 
+Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
 ![Schematic](/static/example1.png)
 
+
+## Kodeeksempel 1 - Få en LED til at blinke
 ```cpp
 const int ledPin = 13;
 
@@ -34,6 +37,98 @@ void loop() {
 
     // Send besked til PC
     Serial.println("LED'en blev slukket.");
+
+    // Vent 1000 millisekunder
+    delay(1000);
+}
+```
+
+## Kodeeksempel 2 - Få LED til at blinke vha. variabel
+```cpp
+const int ledPin = 7;
+bool ledState = false;
+
+void setup() {
+    // Opsæt kommunikationshastighed med PC
+    Serial.begin(115200);
+
+    // Opsæt ledPin til at blive anvendt som output
+    pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+    // Sæt ledState lig med negationen af sin egen værdi
+    ledState = !ledState;
+
+    // Sæt outputtet på ledPin til ledState
+    digitalWrite(ledPin, ledState);
+    
+    // Skriv forskellige tekster til PC afhængig af værdien af ledState
+    if (ledState == true) {
+        Serial.println("LED'en er tændt.");
+    } else {
+        Serial.println("LED'en er slukket.");
+    }
+
+    // Vent 1000 millisekunder
+    delay(1000);
+}
+```
+
+De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
+## Kodeeksempel 3 - Få LED til at blinke ved at læse pinværdi, og gemme i variabel
+```cpp
+const int ledPin = 7;
+
+void setup() {
+    // Opsæt kommunikationshastighed med PC
+    Serial.begin(115200);
+
+    // Opsæt ledPin til at blive anvendt som output
+    pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+    // Sæt ledState lig med negationen ledPins signal
+    bool ledState = !digitalRead(ledPin);
+
+    // Sæt outputtet på ledPin til ledState
+    digitalWrite(ledPin, ledState);
+    
+    // Skriv forskellige tekster til PC afhængig af værdien af ledState
+    if (ledState == true) {
+        Serial.println("LED'en er tændt.");
+    } else {
+        Serial.println("LED'en er slukket.");
+    }
+
+    // Vent 1000 millisekunder
+    delay(1000);
+}
+```
+
+## Kodeeksempel 4 - Få LED til at blinke ved at læse pinværdi
+```cpp
+const int ledPin = 7;
+
+void setup() {
+    // Opsæt kommunikationshastighed med PC
+    Serial.begin(115200);
+
+    // Opsæt ledPin til at blive anvendt som output
+    pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+    // Sæt outputtet på ledPin til lig med negationen ledPins signal
+    digitalWrite(ledPin, !digitalRead(ledPin));
+    
+    // Skriv forskellige tekster til PC afhængig af værdien af ledState
+    if (digitalRead(ledPin) == true) {
+        Serial.println("LED'en er tændt.");
+    } else {
+        Serial.println("LED'en er slukket.");
+    }
 
     // Vent 1000 millisekunder
     delay(1000);
