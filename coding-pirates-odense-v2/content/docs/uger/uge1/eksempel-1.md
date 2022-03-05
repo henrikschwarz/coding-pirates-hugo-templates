@@ -7,6 +7,40 @@ weight: 2
 Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 
 ```cpp
+const int ledPin = 13;
+
+void setup() {
+    // Opsæt kommunikationshastighed med PC
+    Serial.begin(115200);
+
+    // Opsæt ledPin til at blive anvendt som output
+    pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+    // Sæt udgangen til et højt signal
+    digitalWrite(ledPin, HIGH);
+    
+    // Send besked til PC
+    Serial.println("LED'en blev tændt.");
+
+    // Vent 1000 millisekunder
+    delay(1000);
+    
+    // Sæt udgangen til et lavt signal
+    digitalWrite(ledPin, LOW);
+
+    // Send besked til PC
+    Serial.println("LED'en blev slukket.");
+
+    // Vent 1000 millisekunder
+    delay(1000);
+}
+```
+
+# Eksempel 2 - LED strip control (Avanceret)
+
+```cpp
 #include <FastLED.h>
 
 // How many leds in your strip?

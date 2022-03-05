@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 20
-title: 'Uge 1'
+title: 'Uge 1 - 3'
 ---

@@ -9,7 +9,7 @@ Det her er siden for Elektronik workshoppen for coding pirates, hvor vi skal arb
 ## Vigtig information
 Undervisere:
 - Henrik Schwarz
-- Esben ....
+- Esben Damkjær Sørensen
 
 Sted: Odense Hovedbiblotek (Østre Stationsvej 15, 5000 Odense)
 Tid: Onsdag Kl 17:00-19:00
