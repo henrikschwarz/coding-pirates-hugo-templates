@@ -1,5 +1,3 @@
-## Context variables : https://docs.github.com/en/actions/learn-github-actions/contexts
-
 name: Deploy Hugo Pages
 on:
   push:
