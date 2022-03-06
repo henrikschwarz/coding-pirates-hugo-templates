@@ -24,7 +24,7 @@ jobs:
       - name: Build Hugo
         working-directory: ./cp-hugo-pages
         run: |
-          hugo --minify --baseURL="https://${{ github.repository_owner }}.github.io/coding-pirates-hugo-templates"
+          hugo --baseURL="https://${{ github.repository_owner }}.github.io/coding-pirates-hugo-templates"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
