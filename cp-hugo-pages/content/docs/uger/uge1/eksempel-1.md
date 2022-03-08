@@ -12,11 +12,10 @@ Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen:
 De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
 
 ## Kodeeksempel 1 - Få en LED til at blinke
-![Kodeeksempel 1](/static/e1c1.png)
+<!-- ![Kodeeksempel 1](/static/e1c1.png) -->
 
-<!--
 ```cpp
-const int ledPin = 13;
+const int ledPin = 7;
 
 void setup() {
     // Opsæt kommunikationshastighed med PC
@@ -46,7 +45,7 @@ void loop() {
     delay(1000);
 }
 ```
--->
+
 
 ## Kodeeksempel 2 - Få LED til at blinke vha. variabel
 ![Kodeeksempel 2](/static/e1c2.png)
