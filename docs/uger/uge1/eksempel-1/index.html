@@ -4,19 +4,19 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Eksempel 1 - LED control #  Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen: De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
-Kodeeksempel 1 - Få en LED til at blinke #  Kodeeksempel 2 - Få LED til at blinke vha.">
+Kodeeksempel 1 - Få en LED til at blinke #  const int ledPin = 7;  void setup() {  // Opsæt kommunikationshastighed med PC  Serial.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Eksempel 1 - LED">
 <meta property="og:description" content="Eksempel 1 - LED control #  Første Eksempel er for at få en led til at blinke. Det er en af de mest klassiske programmer på Arduinoen.
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen: De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.
-Kodeeksempel 1 - Få en LED til at blinke #  Kodeeksempel 2 - Få LED til at blinke vha.">
+Kodeeksempel 1 - Få en LED til at blinke #  const int ledPin = 7;  void setup() {  // Opsæt kommunikationshastighed med PC  Serial.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/uger/uge1/eksempel-1/"><meta property="article:section" content="docs">
 <title>Eksempel 1 - LED | Coding pirates Odense Elektronik</title><link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.ff5895ae0d4e683664082d07e8be623071f989631df9790026ad4abe85d2dab1.js></script>
+<script defer src=/en.search.min.34dba8e79ea18e058f2d6af0abb9fa421cb1ccc106ebd583361e4aa6886b5bbd.js></script>
 </head><body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
@@ -75,7 +75,36 @@ Eksempel 1 - LED control
 <img src=/static/example1.png alt="El-diagram for eksempel 1"></p><p>De følgende 4 eksempler, viser hvordan, det samme resultat, kan skrives på forskellige måder.</p><h2 id=kodeeksempel-1---få-en-led-til-at-blinke>
 Kodeeksempel 1 - Få en LED til at blinke
 <a class=anchor href=#kodeeksempel-1---f%c3%a5-en-led-til-at-blinke>#</a>
-</h2><p><img src=/static/e1c1.png alt="Kodeeksempel 1"></p><h2 id=kodeeksempel-2---få-led-til-at-blinke-vha-variabel>
+</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> ledPin <span style=color:#f92672>=</span> <span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Opsæt kommunikationshastighed med PC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Serial.begin(<span style=color:#ae81ff>115200</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Opsæt ledPin til at blive anvendt som output
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    pinMode(ledPin, OUTPUT);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Sæt udgangen til et højt signal
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    digitalWrite(ledPin, HIGH);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Send besked til PC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Serial.println(<span style=color:#e6db74>&#34;LED&#39;en blev tændt.&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Vent 1000 millisekunder
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Sæt udgangen til et lavt signal
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    digitalWrite(ledPin, LOW);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Send besked til PC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Serial.println(<span style=color:#e6db74>&#34;LED&#39;en blev slukket.&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Vent 1000 millisekunder
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=kodeeksempel-2---få-led-til-at-blinke-vha-variabel>
 Kodeeksempel 2 - Få LED til at blinke vha. variabel
 <a class=anchor href=#kodeeksempel-2---f%c3%a5-led-til-at-blinke-vha-variabel>#</a>
 </h2><p><img src=/static/e1c2.png alt="Kodeeksempel 2"></p><h2 id=kodeeksempel-3---få-led-til-at-blinke-ved-at-læse-pinværdi-og-gemme-i-variabel>
