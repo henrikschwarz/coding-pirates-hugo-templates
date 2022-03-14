@@ -46,7 +46,7 @@ void loop() {
 # Kodeeksempel 2 - Få LED til at lyse og sende tekst til PC ved ændring i input state
 ![Kodeeksempel 2](/static/e2c2.png)
 
-<!--
+
 ```cpp
 const int ledPin = 8;
 const int inputPin = 7;
@@ -74,18 +74,18 @@ void loop() {
         // Skriv tekst til PC afhængig af inputtets værdi
         if (input) {
             Serial.println("Knappen er trykket ned.");
+            digitalWrite(ledPin, HIGH);
         } else {
             Serial.println("Knappen er sluppet.");
+            digitalWrite(ledPin, LOW);
         }
     }
 
     lastState = input;
 
     // Sæt outputtet på ledPin til den læste værdi på inputPin
-    digitalWrite(ledPin, input);
 
     // Vent 100 millisekunder
     delay(100); 
 }
 ```
--->
