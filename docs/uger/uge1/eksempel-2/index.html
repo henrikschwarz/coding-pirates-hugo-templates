@@ -1,7 +1,7 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Eksempel 2 - LED control vha. input og knap #  I andet eksempel skal du arbejde med input pins på Arduinoen. I denne øvelse skal du få en knap til at lyse, når der trykkes på en knap.
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen: const int ledPin = 8; const int inputPin = 7;  void setup() {   // Opsæt kommunikationshastighed med PC  Serial."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Eksempel 2 - LED & Tactile button"><meta property="og:description" content="Eksempel 2 - LED control vha. input og knap #  I andet eksempel skal du arbejde med input pins på Arduinoen. I denne øvelse skal du få en knap til at lyse, når der trykkes på en knap.
 Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen: const int ledPin = 8; const int inputPin = 7;  void setup() {   // Opsæt kommunikationshastighed med PC  Serial."><meta property="og:type" content="article"><meta property="og:url" content="/docs/uger/uge1/eksempel-2/"><meta property="article:section" content="docs"><title>Eksempel 2 - LED & Tactile button | Coding pirates Odense Elektronik</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css><script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.7a0c0c10aa3bb777ddec727eaca36c4acab56547e1233776140dcb20ba533c59.js></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<script defer src=/en.search.min.a3a2726fda29ce10000fb462b8c3c5ddfe235c49cc672b0c6c9b670aafc8996d.js></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Coding pirates Odense Elektronik</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/hjem/>Introduction</a><ul></ul></li><li class=book-section-flat><a href=/docs/uger/>Tidsplan og uger</a><ul><li><input type=checkbox id=section-b6774029ee9901fc9b15cdadbc8a444d class=toggle checked>
 <label for=section-b6774029ee9901fc9b15cdadbc8a444d class="flex justify-between"><a role=button>Uge 1 - 3</a></label><ul><li><a href=/docs/uger/uge1/install/>Intaller Arduino</a></li><li><a href=/docs/uger/uge1/eksempel-1/>Eksempel 1 - LED</a></li><li><a href=/docs/uger/uge1/eksempel-2/ class=active>Eksempel 2 - LED & Tactile button</a></li><li><a href=/docs/uger/uge1/eksempel-3/>Eksempel 3 - LED & Potentiometer</a></li><li><a href=/docs/uger/uge1/eksempel-4/>Eksempel 4 - Buzzer</a></li><li><a href=/docs/uger/uge1/eksempel-5/>Eksempel 5 - LCD</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Eksempel 2 - LED & Tactile button</strong>
@@ -33,4 +33,44 @@ Følgende billede viser hvordan de elektroniske komponenter skal kobles sammen: 
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    delay(<span style=color:#ae81ff>100</span>); 
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h1 id=kodeeksempel-2---få-led-til-at-lyse-og-sende-tekst-til-pc-ved-ændring-i-input-state>Kodeeksempel 2 - Få LED til at lyse og sende tekst til PC ved ændring i input state
-<a class=anchor href=#kodeeksempel-2---f%c3%a5-led-til-at-lyse-og-sende-tekst-til-pc-ved-%c3%a6ndring-i-input-state>#</a></h1><p><img src=/static/e2c2.png alt="Kodeeksempel 2"></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<a class=anchor href=#kodeeksempel-2---f%c3%a5-led-til-at-lyse-og-sende-tekst-til-pc-ved-%c3%a6ndring-i-input-state>#</a></h1><p><img src=/static/e2c2.png alt="Kodeeksempel 2"></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> ledPin <span style=color:#f92672>=</span> <span style=color:#ae81ff>8</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> inputPin <span style=color:#f92672>=</span> <span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>bool</span> lastState <span style=color:#f92672>=</span> false;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Opsæt kommunikationshastighed med PC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Serial.begin(<span style=color:#ae81ff>115200</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Opsæt ledPin til at blive anvendt som output
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    pinMode(ledPin, OUTPUT);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Opsæt inputPin til at blive anvendt som input
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    pinMode(inputPin, INPUT);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Læs signalet på inputPin og gem resultatet i input
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>bool</span> input <span style=color:#f92672>=</span> digitalRead(inputPin);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Tjek om input har ændret sig siden sidste læsning
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (input <span style=color:#f92672>!=</span> lastState) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Skriv tekst til PC afhængig af inputtets værdi
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (input) {
+</span></span><span style=display:flex><span>            Serial.println(<span style=color:#e6db74>&#34;Knappen er trykket ned.&#34;</span>);
+</span></span><span style=display:flex><span>            digitalWrite(ledPin, HIGH);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            Serial.println(<span style=color:#e6db74>&#34;Knappen er sluppet.&#34;</span>);
+</span></span><span style=display:flex><span>            digitalWrite(ledPin, LOW);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    lastState <span style=color:#f92672>=</span> input;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Sæt outputtet på ledPin til den læste værdi på inputPin
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Vent 100 millisekunder
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    delay(<span style=color:#ae81ff>100</span>); 
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
