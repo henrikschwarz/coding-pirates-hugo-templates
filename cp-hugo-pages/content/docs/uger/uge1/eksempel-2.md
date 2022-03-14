@@ -74,16 +74,15 @@ void loop() {
         // Skriv tekst til PC afhængig af inputtets værdi
         if (input) {
             Serial.println("Knappen er trykket ned.");
-            digitalWrite(ledPin, HIGH);
         } else {
             Serial.println("Knappen er sluppet.");
-            digitalWrite(ledPin, LOW);
         }
     }
 
     lastState = input;
 
     // Sæt outputtet på ledPin til den læste værdi på inputPin
+    digitalWrite(ledPin, input);
 
     // Vent 100 millisekunder
     delay(100); 
