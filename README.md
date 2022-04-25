@@ -1,2 +1,2 @@
-# coding-pirates-hugo-templates
+# coding-pirates-hugo-template
 Hugo template examples for coding pirates odense
