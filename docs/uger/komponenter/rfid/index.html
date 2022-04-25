@@ -1,0 +1,120 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Setup #  Ledningerne for RFID modulet: Og en tabel over forbindelserne: Bibloteket #  Installer biblioteket fra Arduino IDE: Kode eksempler: #   #include <SPI.h>#include <MFRC522.h> #define SS_PIN 10 #define RST_PIN 5  MFRC522 rfid(SS_PIN, RST_PIN);  void setup() {  Serial.begin(9600);  SPI.begin(); // init SPI bus  rfid.PCD_Init(); // init MFRC522   Serial.println(&#34;Tap RFID/NFC Tag on reader&#34;); }  void loop() {  if (rfid.PICC_IsNewCardPresent()) { // new tag is available  if (rfid."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="RFID eksemepel kode og setup"><meta property="og:description" content="Setup #  Ledningerne for RFID modulet: Og en tabel over forbindelserne: Bibloteket #  Installer biblioteket fra Arduino IDE: Kode eksempler: #   #include <SPI.h>#include <MFRC522.h> #define SS_PIN 10 #define RST_PIN 5  MFRC522 rfid(SS_PIN, RST_PIN);  void setup() {  Serial.begin(9600);  SPI.begin(); // init SPI bus  rfid.PCD_Init(); // init MFRC522   Serial.println(&#34;Tap RFID/NFC Tag on reader&#34;); }  void loop() {  if (rfid.PICC_IsNewCardPresent()) { // new tag is available  if (rfid."><meta property="og:type" content="article"><meta property="og:url" content="/docs/uger/komponenter/rfid/"><meta property="article:section" content="docs"><title>RFID eksemepel kode og setup | Coding pirates Odense Elektronik</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css><script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.63305d86f4ae9398f7138919234b88f80b6585557dd173cf3b2d7f43c5b0ca30.js></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Coding pirates Odense Elektronik</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/hjem/>Introduction</a><ul></ul></li><li class=book-section-flat><a href=/docs/uger/>Tidsplan og uger</a><ul><li><input type=checkbox id=section-ad699ac3fbc51e12f6818c76f9655e1c class=toggle checked>
+<label for=section-ad699ac3fbc51e12f6818c76f9655e1c class="flex justify-between"><a role=button>Komponenter</a></label><ul><li><a href=/docs/uger/komponenter/keypad/>Keypad eksemepel kode og setup</a></li><li><a href=/docs/uger/komponenter/rfid/ class=active>RFID eksemepel kode og setup</a></li><li><a href=/docs/uger/komponenter/rtc/>RTC eksemepel kode og setup</a></li></ul></li><li><input type=checkbox id=section-b6774029ee9901fc9b15cdadbc8a444d class=toggle>
+<label for=section-b6774029ee9901fc9b15cdadbc8a444d class="flex justify-between"><a role=button>Uge 1 - 3</a></label><ul><li><a href=/docs/uger/uge1/install/>Intaller Arduino</a></li><li><a href=/docs/uger/uge1/eksempel-1/>Eksempel 1 - LED</a></li><li><a href=/docs/uger/uge1/eksempel-2/>Eksempel 2 - LED & Tactile button</a></li><li><a href=/docs/uger/uge1/eksempel-3/>Eksempel 3 - LED & Potentiometer</a></li><li><a href=/docs/uger/uge1/eksempel-4/>Eksempel 4 - Buzzer</a></li><li><a href=/docs/uger/uge1/eksempel-5/>Eksempel 5 - LCD</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>RFID eksemepel kode og setup</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#kode-med-servo>Kode med servo:</a><ul><li><a href=#kilde>Kilde:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=setup>Setup
+<a class=anchor href=#setup>#</a></h1><p>Ledningerne for RFID modulet:
+<img src=/static/rfid-wire.jpg alt="Ledninger for RFID modul"></p><p>Og en tabel over forbindelserne:
+<img src=/static/rfid-table.jpg alt="Tabel over forbindelser til RFID modulet"></p><h1 id=bibloteket>Bibloteket
+<a class=anchor href=#bibloteket>#</a></h1><p>Installer biblioteket fra Arduino IDE:
+<img src=/static/rfid-lib1.jpg alt="Biblioteket for RFID modulet"></p><h1 id=kode-eksempler>Kode eksempler:
+<a class=anchor href=#kode-eksempler>#</a></h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;SPI.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;MFRC522.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SS_PIN 10
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define RST_PIN 5
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>MFRC522 <span style=color:#a6e22e>rfid</span>(SS_PIN, RST_PIN);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  Serial.begin(<span style=color:#ae81ff>9600</span>);
+</span></span><span style=display:flex><span>  SPI.begin(); <span style=color:#75715e>// init SPI bus
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  rfid.PCD_Init(); <span style=color:#75715e>// init MFRC522
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  Serial.println(<span style=color:#e6db74>&#34;Tap RFID/NFC Tag on reader&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (rfid.PICC_IsNewCardPresent()) { <span style=color:#75715e>// new tag is available
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (rfid.PICC_ReadCardSerial()) { <span style=color:#75715e>// NUID has been readed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      MFRC522<span style=color:#f92672>::</span>PICC_Type piccType <span style=color:#f92672>=</span> rfid.PICC_GetType(rfid.uid.sak);
+</span></span><span style=display:flex><span>      <span style=color:#75715e>//Serial.print(&#34;RFID/NFC Tag Type: &#34;);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#75715e>//Serial.println(rfid.PICC_GetTypeName(piccType));
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// print NUID in Serial Monitor in the hex format
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      Serial.print(<span style=color:#e6db74>&#34;UID:&#34;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> rfid.uid.size; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        Serial.print(rfid.uid.uidByte[i] <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0x10</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34; 0&#34;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34; &#34;</span>);
+</span></span><span style=display:flex><span>        Serial.print(rfid.uid.uidByte[i], HEX);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      Serial.println();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      rfid.PICC_HaltA(); <span style=color:#75715e>// halt PICC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      rfid.PCD_StopCrypto1(); <span style=color:#75715e>// stop encryption on PCD
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=kode-med-servo>Kode med servo:
+<a class=anchor href=#kode-med-servo>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * Created by ArduinoGetStarted.com
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * This example code is in the public domain
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-rfid-nfc-servo-motor
+</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;SPI.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;MFRC522.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;Servo.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SS_PIN    10
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define RST_PIN   9
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define SERVO_PIN A5
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>MFRC522 <span style=color:#a6e22e>rfid</span>(SS_PIN, RST_PIN);
+</span></span><span style=display:flex><span>Servo servo;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>byte authorizedUID[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0xFF</span>, <span style=color:#ae81ff>0xFF</span>, <span style=color:#ae81ff>0xFF</span>, <span style=color:#ae81ff>0xFF</span>};
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> angle <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#75715e>// the current angle of servo motor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  Serial.begin(<span style=color:#ae81ff>9600</span>);
+</span></span><span style=display:flex><span>  SPI.begin(); <span style=color:#75715e>// init SPI bus
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  rfid.PCD_Init(); <span style=color:#75715e>// init MFRC522
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  servo.attach(SERVO_PIN);
+</span></span><span style=display:flex><span>  servo.write(angle); <span style=color:#75715e>// rotate servo motor to 0°
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  Serial.println(<span style=color:#e6db74>&#34;Tap RFID/NFC Tag on reader&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (rfid.PICC_IsNewCardPresent()) { <span style=color:#75715e>// new tag is available
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (rfid.PICC_ReadCardSerial()) { <span style=color:#75715e>// NUID has been readed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      MFRC522<span style=color:#f92672>::</span>PICC_Type piccType <span style=color:#f92672>=</span> rfid.PICC_GetType(rfid.uid.sak);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (rfid.uid.uidByte[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> authorizedUID[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>          rfid.uid.uidByte[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> authorizedUID[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>          rfid.uid.uidByte[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> authorizedUID[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>          rfid.uid.uidByte[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>==</span> authorizedUID[<span style=color:#ae81ff>3</span>] ) {
+</span></span><span style=display:flex><span>        Serial.println(<span style=color:#e6db74>&#34;Authorized Tag&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// change angle of servo motor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (angle <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>          angle <span style=color:#f92672>=</span> <span style=color:#ae81ff>90</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> <span style=color:#75715e>//if(angle == 90)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>          angle <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// control servo motor arccoding to the angle
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        servo.write(angle);
+</span></span><span style=display:flex><span>        Serial.print(<span style=color:#e6db74>&#34;Rotate Servo Motor to &#34;</span>);
+</span></span><span style=display:flex><span>        Serial.print(angle);
+</span></span><span style=display:flex><span>        Serial.println(<span style=color:#e6db74>&#34;°&#34;</span>);
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        Serial.print(<span style=color:#e6db74>&#34;Unauthorized Tag with UID:&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> rfid.uid.size; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>          Serial.print(rfid.uid.uidByte[i] <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0x10</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34; 0&#34;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34; &#34;</span>);
+</span></span><span style=display:flex><span>          Serial.print(rfid.uid.uidByte[i], HEX);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        Serial.println();
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      rfid.PICC_HaltA(); <span style=color:#75715e>// halt PICC
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      rfid.PCD_StopCrypto1(); <span style=color:#75715e>// stop encryption on PCD
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=kilde>Kilde:
+<a class=anchor href=#kilde>#</a></h3><p><a href=https://arduinogetstarted.com/tutorials/arduino-rfid-nfc>Kilde</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#kode-med-servo>Kode med servo:</a><ul><li><a href=#kilde>Kilde:</a></li></ul></li></ul></nav></div></aside></main></body></html>
