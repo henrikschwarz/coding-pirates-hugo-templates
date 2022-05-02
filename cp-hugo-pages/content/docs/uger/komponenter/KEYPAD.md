@@ -47,6 +47,15 @@ void loop(){
 }
 ```
 
+# Keypad kommandoer
+Det her er kommandoer som Keypad tager:
+- `keys[ROW_NUM][COLUMN_NUM] = {'1','2','3', 'A'};` - Definerer en array med 4 rækker og 4 kolonner.
+- `pin_column[COLUMN_NUM] = {5, 4, 3, 2};` - Pins for kolonnerne.
+- `pin_rows[ROW_NUM] = {9, 8, 7, 6};` - Pins for rækkerne.
+- `Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );` - Initialiserer Keypad med 4 rækker og 4 kolonner.
+- `char key = keypad.getKey();` - Returnerer den næste tast som er trykket på.
+
+
 
 ### Kilde
 [Kilde](https://arduinogetstarted.com/tutorials/arduino-keypad)

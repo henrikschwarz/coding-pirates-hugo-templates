@@ -85,5 +85,17 @@ void printToLCD(DateTime now, LiquidCrystalI2C lcd){
 ```
 
 
+# RTC kommandoer
+Det her er kommandoer som RTC tager:
+- `rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));` - Sætter RTC modulet til computerens tid og dato.
+- `DateTime tidspunkt = rtc.now();` - Returnerer en DateTime objekt med computerens tid og dato og gemmer det i en variabel som hedder `tidspunkt`.
+- `tidspunkt.hour();` - Returnerer time tal ud fra vores variabel `tidspunkt`.
+- `tidspunkt.minute();` - Returnerer minut tal ud fra vores variabel `tidspunkt`.
+- `tidspunkt.second();` - Returnerer sekund tal ud fra vores variabel `tidspunkt`.
+- `tidspunkt.day();` - Returnerer dag tal ud fra vores variabel `tidspunkt`.
+- `tidspunkt.month();` - Returnerer måned tal ud fra vores variabel `tidspunkt`.
+- `tidspunkt.year();` - Returnerer år tal ud fra vores variabel `tidspunkt`.
+
+
 ### Kilde
 [Kilde](https://arduinogetstarted.com/tutorials/arduino-rtc)
